@@ -1,0 +1,10 @@
+<div class="container-atividades">
+    <h3>Atividades</h3>
+
+    <ul class="lista-atividades">
+        <li *ngFor="let atividade of atividades" class="lista-atividades__itens">
+            <input type="hidden" value="{{atividade.id}}">
+            {{atividade.descricao}}
+        </li>
+    </ul>
+</div>
