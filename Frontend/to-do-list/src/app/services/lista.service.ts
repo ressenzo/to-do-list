@@ -20,6 +20,6 @@ export class ListaService {
 
     // return this.atividades;
 
-    return this.http.get<Atividade[]>("http://localhost:59584/Api/Atividades/get");
+    return this.http.get<Atividade[]>("http://localhost:59584/Api/Atividades/");
   }
 }
