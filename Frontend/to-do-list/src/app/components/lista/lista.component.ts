@@ -10,17 +10,23 @@ import { ListaService } from 'src/app/services/lista.service';
 export class ListaComponent implements OnInit {
 
   public atividades: Atividade[];
+  public idExcluir: number;
 
   constructor(private listaService: ListaService) { }
 
   ngOnInit() {
     
     this.listaService.obterAtividades().subscribe((data: Atividade[]) => { this.atividades = data });
+    this.idExcluir = 0;
   }
 
   adicionarAtividade(atividade: Atividade) {
 
     this.atividades.push(atividade);
+  }
+
+  excluir(id: number) {
+    this.idExcluir = id;
   }
 
 }
