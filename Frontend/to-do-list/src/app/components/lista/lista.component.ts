@@ -16,8 +16,12 @@ export class ListaComponent implements OnInit {
 
   ngOnInit() {
     
-    this.listaService.obterAtividades().subscribe((data: Atividade[]) => { this.atividades = data });
+    this.listarTodos();
     this.idExcluir = 0;
+  }
+
+  listarTodos() {
+    this.listaService.obterAtividades().subscribe((data: Atividade[]) => { this.atividades = data });
   }
 
   adicionarAtividade(atividade: Atividade) {
@@ -26,7 +30,9 @@ export class ListaComponent implements OnInit {
   }
 
   excluir(id: number) {
+    
     this.idExcluir = id;
+    this.listaService.excluirAtividade(this.idExcluir).subscribe(() => this.listarTodos());
   }
 
 }
