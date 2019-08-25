@@ -1,12 +1,9 @@
 <div class="container-atividades">
     <h3>Atividades</h3>
 
-    <ul class="lista-atividades">
-        <li *ngFor="let atividade of atividades" class="lista-atividades__itens">
-            <input type="hidden" value="{{atividade.id}}">
-            {{atividade.descricao}}
-            <button (click)="excluir(atividade.id)">Excluir</button>
-        </li>
-    </ul>
+    <mat-list role="list">
+        <mat-list-item *ngFor="let atividade of atividades">
+            {{atividade.descricao}} &nbsp;&nbsp;&nbsp; <button mat-button (click)="excluir(atividade.id)">Excluir</button>
+        </mat-list-item>
+    </mat-list>
 </div>
-{{idExcluir}}

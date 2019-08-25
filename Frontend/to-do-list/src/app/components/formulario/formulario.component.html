@@ -1,13 +1,13 @@
 <div class="container-formulario">
 
-    <!-- <form (ngSubmit)="cadastrarAtividade()" #atividadeForm="ngForm">
-        <input type="text" id="descricao" [(ngModel)]="model.descricao" name="descricao" #name="ngModel" />
-        <input type="submit" />
-    </form> -->
-
     <form>
-        <input type="text" id="descricao" />
-        <input type="submit" />
+        <mat-form-field>
+            <mat-label>Descrição</mat-label>
+            <input matInput placeholder="Descrição">
+        </mat-form-field>
+        <div>
+            <button mat-raised-button (click)="salvarAtividade()" color="primary">Salvar</button>
+        </div>
     </form>
 
 </div>

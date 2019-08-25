@@ -7,6 +7,10 @@ import { ListaComponent } from './components/lista/lista.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatListModule } from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
+import { MatInputModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatListModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

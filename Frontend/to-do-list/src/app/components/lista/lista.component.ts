@@ -9,15 +9,13 @@ import { ListaService } from 'src/app/services/lista.service';
 })
 export class ListaComponent implements OnInit {
 
-  public atividades: Atividade[];
-  public idExcluir: number;
+  public atividades: Atividade[] = [];
 
   constructor(private listaService: ListaService) { }
 
   ngOnInit() {
     
     this.listarTodos();
-    this.idExcluir = 0;
   }
 
   listarTodos() {
@@ -31,8 +29,8 @@ export class ListaComponent implements OnInit {
 
   excluir(id: number) {
     
-    this.idExcluir = id;
-    this.listaService.excluirAtividade(this.idExcluir).subscribe(() => this.listarTodos());
+    
+    this.listaService.excluirAtividade(id).subscribe(() => this.listarTodos());
   }
 
 }
