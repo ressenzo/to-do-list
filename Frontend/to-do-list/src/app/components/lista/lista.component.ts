@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Atividade } from 'src/app/classes/atividade';
+import { ListaService } from 'src/app/services/lista.service';
 
 @Component({
   selector: 'app-lista',
@@ -10,14 +11,11 @@ export class ListaComponent implements OnInit {
 
   public atividades: Atividade[];
 
-  constructor() { }
+  constructor(private listaService: ListaService) { }
 
   ngOnInit() {
     
-    this.atividades = [
-      new Atividade(1, 'Atividade 1'),
-      new Atividade(2, 'Atividade 2')
-    ];
+    this.atividades = this.listaService.obterAtividades();
   }
 
   adicionarAtividade(atividade: Atividade) {
