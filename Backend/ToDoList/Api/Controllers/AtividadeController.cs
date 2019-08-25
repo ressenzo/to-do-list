@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.BLLs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,21 +10,27 @@ namespace Api.Controllers
 {
     public class AtividadeController : ApiController
     {
-        List<Atividade> atividades = new List<Atividade>() {
-        new Atividade { Descricao = "Atividade 1", Id = 1 },
-        new Atividade { Descricao = "Atividade 2", Id = 2 } };
+        AtividadeBll _atividade = new AtividadeBll();
 
         [HttpGet]
         public IHttpActionResult Get()
         {
+            var atividades = _atividade.Listar();
+
             return Ok(atividades);
         }
 
-        [HttpGet]
-        public IHttpActionResult Get(int id)
+        [HttpDelete]
+        public IHttpActionResult Deletar(int id)
         {
-            var atividade = atividades.Where(x => x.Id == id);
-            return Ok(atividade);
+            _atividade.Deletar(id);
+
+            object confirmacao = new
+            {
+                resultado = true
+            };
+
+            return Ok(confirmacao);
         }
     }
 
