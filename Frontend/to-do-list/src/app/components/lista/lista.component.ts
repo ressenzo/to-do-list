@@ -15,7 +15,7 @@ export class ListaComponent implements OnInit {
 
   ngOnInit() {
     
-    this.atividades = this.listaService.obterAtividades();
+    this.listaService.obterAtividades().subscribe((data: Atividade[]) => { this.atividades = data });
   }
 
   adicionarAtividade(atividade: Atividade) {
