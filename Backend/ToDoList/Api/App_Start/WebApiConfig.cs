@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
-namespace ToDoList
+namespace Api
 {
     public static class WebApiConfig
     {
