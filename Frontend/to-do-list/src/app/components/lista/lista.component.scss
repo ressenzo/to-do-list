@@ -1,8 +1,9 @@
-.lista-atividades {
-    list-style-type: none;
-    padding-left: 0;
+.container-atividades {
+    margin-top: 20px;
+}
 
-    &__itens {
-        padding-top: 5px;
+.list-group-item-action {
+    &__button {
+        float: right;
     }
 }

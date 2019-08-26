@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Atividade } from 'src/app/classes/atividade';
 import { ListaService } from 'src/app/services/lista.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-lista',
@@ -10,8 +11,11 @@ import { ListaService } from 'src/app/services/lista.service';
 export class ListaComponent implements OnInit {
 
   public atividades: Atividade[] = [];
+  public modalRef: BsModalRef;
+  public descricaoAtividadeParaExcluir: string = null;
+  public idAtividadeParaExcluir: number = 0;
 
-  constructor(private listaService: ListaService) { }
+  constructor(private listaService: ListaService, private modalService: BsModalService) { }
 
   ngOnInit() {
     
@@ -27,10 +31,19 @@ export class ListaComponent implements OnInit {
     this.atividades.push(atividade);
   }
 
-  excluir(id: number) {
+  excluir() {    
     
-    
-    this.listaService.excluirAtividade(id).subscribe(() => this.listarTodos());
+    this.listaService.excluirAtividade(this.idAtividadeParaExcluir).subscribe(() => {
+      this.listarTodos()
+      this.modalRef.hide();
+    });
+  }
+
+  modalExcluir(modal: TemplateRef<any>, idAtividadeParaExcluir: number, descricaoAtividadeParaExcluir: string) {
+
+    this.idAtividadeParaExcluir = idAtividadeParaExcluir;
+    this.descricaoAtividadeParaExcluir = descricaoAtividadeParaExcluir;
+    this.modalRef = this.modalService.show(modal);
   }
 
 }

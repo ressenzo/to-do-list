@@ -8,9 +8,7 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatListModule } from '@angular/material/list';
-import {MatButtonModule} from '@angular/material/button';
-import { MatInputModule } from '@angular/material';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -24,9 +22,7 @@ import { MatInputModule } from '@angular/material';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatListModule,
-    MatInputModule,
-    MatButtonModule
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
