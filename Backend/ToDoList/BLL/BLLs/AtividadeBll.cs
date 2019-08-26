@@ -13,6 +13,11 @@ namespace BLL.BLLs
     {
         AtividadeDal _atividade = new AtividadeDal();
 
+        public void Cadastrar(AtividadeDto atividade)
+        {
+            _atividade.Cadastrar(atividade);
+        }
+
         public void Deletar(int id)
         {
             _atividade.Deletar(id);

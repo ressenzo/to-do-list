@@ -1,4 +1,5 @@
 ﻿using BLL.BLLs;
+using DTO.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,12 +33,18 @@ namespace Api.Controllers
 
             return Ok(confirmacao);
         }
-    }
 
-    public class Atividade
-    {
-        public int Id { get; set; }
+        [HttpPost]
+        public IHttpActionResult Cadastrar(AtividadeDto atividade)
+        {
+            _atividade.Cadastrar(atividade);
 
-        public string Descricao { get; set; }
+            object confirmacao = new
+            {
+                resultado = true
+            };
+
+            return Ok(confirmacao);
+        }
     }
 }

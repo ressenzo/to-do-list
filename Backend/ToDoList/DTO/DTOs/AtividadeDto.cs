@@ -8,7 +8,7 @@ namespace DTO.DTOs
 {
     public class AtividadeDto
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         public string Descricao { get; set; }
     }

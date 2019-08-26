@@ -1,12 +1,12 @@
 <div class="container-formulario">
 
-    <form>
+    <form (ngSubmit)="salvarAtividade(atividade)" #atividadeForm="ngForm">
         <mat-form-field>
             <mat-label>Descrição</mat-label>
-            <input matInput placeholder="Descrição">
+            <input matInput placeholder="Descrição" [(ngModel)]="atividade.descricao" name="descricao" />
         </mat-form-field>
         <div>
-            <button mat-raised-button (click)="salvarAtividade()" color="primary">Salvar</button>
+            <button mat-raised-button type="submit" color="primary">Salvar</button>
         </div>
     </form>
 

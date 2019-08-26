@@ -12,5 +12,7 @@ namespace BLL.Interfaces
         List<AtividadeDto> Listar();
 
         void Deletar(int id);
+
+        void Cadastrar(AtividadeDto atividade);
     }
 }

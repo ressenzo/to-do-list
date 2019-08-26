@@ -26,7 +26,17 @@ namespace DAL.DALs
         {
             using (var conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlServer"].ConnectionString))
             {
-                var sql = "DELETE FROM atividades WHERE id = " + id;
+                var sql = $"DELETE FROM atividades WHERE id = {id}";
+
+                conexao.Execute(sql);
+            }
+        }
+
+        public void Cadastrar(AtividadeDto atividade)
+        {
+            using (var conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlServer"].ConnectionString))
+            {
+                var sql = $"INSERT INTO Atividades VALUES ('{atividade.Descricao}')";
 
                 conexao.Execute(sql);
             }
