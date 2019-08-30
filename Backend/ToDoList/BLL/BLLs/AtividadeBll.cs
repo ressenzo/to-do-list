@@ -1,31 +1,26 @@
-﻿using BLL.Interfaces;
-using DAL.DALs;
-using DTO.DTOs;
+﻿using DAL.DALs;
+using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entity.Entitties;
 
 namespace BLL.BLLs
 {
-    public class AtividadeBll : IAtividade
+    public class AtividadeBll
     {
-        AtividadeDal _atividade = new AtividadeDal();
+        IAtividade _atividade;
 
-        public void Cadastrar(AtividadeDto atividade)
+        public AtividadeBll(IAtividade atividade)
+        {
+            _atividade = atividade;
+        }
+
+        public void Cadastrar(AtividadeEntity atividade)
         {
             _atividade.Cadastrar(atividade);
-        }
-
-        public void Deletar(int id)
-        {
-            _atividade.Deletar(id);
-        }
-
-        public List<AtividadeDto> Listar()
-        {
-            return _atividade.Listar();
         }
     }
 }

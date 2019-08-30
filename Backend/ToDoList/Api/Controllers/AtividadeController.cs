@@ -1,5 +1,6 @@
-﻿using BLL.BLLs;
-using DTO.DTOs;
+﻿using Entity.Entitties;
+using Repository.Interfaces;
+using Repository.Repositoryies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,12 @@ namespace Api.Controllers
 {
     public class AtividadeController : ApiController
     {
-        AtividadeBll _atividade = new AtividadeBll();
+        readonly IAtividade _atividade;
+
+        public AtividadeController(IAtividade atividade)
+        {
+            _atividade = atividade;
+        }
 
         [HttpGet]
         public IHttpActionResult Get()
@@ -35,7 +41,7 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Cadastrar(AtividadeDto atividade)
+        public IHttpActionResult Cadastrar(AtividadeEntity atividade)
         {
             _atividade.Cadastrar(atividade);
 
