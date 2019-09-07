@@ -1,24 +1,31 @@
 <div class="container-atividades">
-    <h3>Atividades</h3>
 
-    <ul class="list-group">
-        <li class="list-group-item list-group-item-action" *ngFor="let atividade of atividades">
-            {{atividade.descricao}} &nbsp;&nbsp;&nbsp; <button class="btn btn-danger btn-sm list-group-item-action__button" (click)="modalExcluir(template, atividade.id, atividade.descricao)">Excluir</button>
-        </li>
-    </ul>
-    
-    <ng-template #template>
-        <div class="modal-header">
-            <h4 class="modal-title pull-left">Excluir atividade</h4>
-            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            Deseja excluir "{{descricaoAtividadeParaExcluir}}"?
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-danger" (click)="excluir()">Excluir</button>
-        </div>
-    </ng-template>
+    <div  *ngIf="atividades.length == 0">
+        <h3>Nenhuma atividade cadastrada</h3>
+    </div>
+
+    <div *ngIf="atividades.length > 0">
+        <h3>Atividades</h3>
+
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-action" *ngFor="let atividade of atividades">
+                {{atividade.descricao}} &nbsp;&nbsp;&nbsp; <button class="btn btn-danger btn-sm list-group-item-action__button" (click)="modalExcluir(template, atividade.id, atividade.descricao)">Excluir</button>
+            </li>
+        </ul>
+        
+        <ng-template #template>
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Excluir atividade</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Deseja excluir "{{descricaoAtividadeParaExcluir}}"?
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" (click)="excluir()">Excluir</button>
+            </div>
+        </ng-template>
+    </div>
 </div>
