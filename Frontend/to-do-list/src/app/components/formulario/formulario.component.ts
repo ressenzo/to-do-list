@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Atividade } from 'src/app/classes/atividade';
 import { AtividadeService } from 'src/app/services/atividade.service';
 
@@ -9,6 +9,7 @@ import { AtividadeService } from 'src/app/services/atividade.service';
 })
 export class FormularioComponent implements OnInit {
 
+  @Output() atividadeCadastrada = new EventEmitter<Atividade>();
   public atividade: Atividade;
 
   constructor(public atividadeService: AtividadeService) { }
@@ -20,7 +21,17 @@ export class FormularioComponent implements OnInit {
 
   salvarAtividade(atividade: Atividade) {
 
-    this.atividadeService.cadastrarAtividade(atividade).subscribe(() => this.atividade = new Atividade(0, null));
+    let atividadeCadastrada: Atividade;
+
+    this.atividadeService.cadastrarAtividade(atividade).subscribe((ati: Atividade) => {
+      
+      this.atividade = new Atividade(0, null);
+      atividadeCadastrada = {
+        descricao: atividade.descricao,
+        id: ati.id
+      };
+      this.atividadeCadastrada.emit(atividadeCadastrada);
+    });
   }
 
 }

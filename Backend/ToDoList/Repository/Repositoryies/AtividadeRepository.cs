@@ -11,11 +11,11 @@ namespace Repository.Repositoryies
 {
     public class AtividadeRepository : IAtividade
     {
-        public void Cadastrar(AtividadeEntity atividade)
+        public int Cadastrar(AtividadeEntity atividade)
         {
             using (var conexao = Conection.Conection.Conectar())
             {
-                conexao.Query($"INSERT INTO atividades VALUES ('{atividade.Descricao}')");
+                return conexao.Query<int>($"INSERT INTO atividades VALUES ('{atividade.Descricao}'); SELECT id AS Id FROM Atividades WHERE id = @@Identity").FirstOrDefault();
             }
         }
 
@@ -23,7 +23,7 @@ namespace Repository.Repositoryies
         {
             using (var conexao = Conection.Conection.Conectar())
             {
-                conexao.Query($"DELETE FROM atividades WHERE id = {id}");
+                conexao.Execute($"DELETE FROM atividades WHERE id = {id}");
             }
         }
 

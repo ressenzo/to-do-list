@@ -9,7 +9,7 @@ namespace Repository.Interfaces
 {
     public interface IAtividade
     {
-        void Cadastrar(AtividadeEntity atividade);
+        int Cadastrar(AtividadeEntity atividade);
 
         List<AtividadeEntity> Listar();
 

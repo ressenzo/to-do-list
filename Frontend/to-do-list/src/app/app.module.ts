@@ -9,12 +9,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { CadastroAtividadeComponent } from './components/cadastro-atividade/cadastro-atividade.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaComponent,
-    FormularioComponent
+    FormularioComponent,
+    CadastroAtividadeComponent
   ],
   imports: [
     BrowserModule,

@@ -43,11 +43,12 @@ namespace Api.Controllers
         [HttpPost]
         public IHttpActionResult Cadastrar(AtividadeEntity atividade)
         {
-            _atividade.Cadastrar(atividade);
+            var idAtividade = _atividade.Cadastrar(atividade);
 
             object confirmacao = new
             {
-                resultado = true
+                resultado = true,
+                id = idAtividade
             };
 
             return Ok(confirmacao);
