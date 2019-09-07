@@ -14,5 +14,7 @@ namespace Repository.Interfaces
         List<AtividadeEntity> Listar();
 
         void Deletar(int id);
+
+        void Alterar(AtividadeEntity atividade);
     }
 }

@@ -53,5 +53,18 @@ namespace Api.Controllers
 
             return Ok(confirmacao);
         }
+
+        [HttpPut]
+        public IHttpActionResult Alterar(AtividadeEntity atividade)
+        {
+            _atividade.Alterar(atividade);
+
+            object confirmacao = new
+            {
+                resultado = true
+            };
+
+            return Ok(confirmacao);
+        }
     }
 }

@@ -2,8 +2,16 @@
     margin-top: 20px;
 }
 
+.list-group {
+    vertical-align: text-bottom;
+}
+
 .list-group-item-action {
-    &__button {
+    &__botao {
         float: right;
     }
+}
+
+.primeiro {
+    margin-right: 10px;
 }

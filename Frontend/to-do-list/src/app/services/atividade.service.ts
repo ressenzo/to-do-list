@@ -17,4 +17,9 @@ export class AtividadeService {
     atividade.id = null;
     return this.http.post<Atividade>(this.URL, atividade);
   }
+
+  alterarAtividade(atividade: Atividade): Observable<Atividade> {
+
+    return this.http.put<Atividade>(this.URL, atividade);
+  }
 }

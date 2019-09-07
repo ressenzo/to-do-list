@@ -11,6 +11,14 @@ namespace Repository.Repositoryies
 {
     public class AtividadeRepository : IAtividade
     {
+        public void Alterar(AtividadeEntity atividade)
+        {
+            using (var conexao = Conection.Conection.Conectar())
+            {
+                conexao.Execute($"UPDATE Atividades SET descricao = '{atividade.Descricao}' WHERE id = {atividade.Id}");
+            }
+        }
+
         public int Cadastrar(AtividadeEntity atividade)
         {
             using (var conexao = Conection.Conection.Conectar())
