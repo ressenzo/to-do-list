@@ -4,7 +4,8 @@ import { CadastroAtividadeComponent } from './components/cadastro-atividade/cada
 
 
 const routes: Routes = [
-  {path: 'cadastro', component: CadastroAtividadeComponent}
+  { path: 'cadastro', component: CadastroAtividadeComponent },
+  { path: '', component: CadastroAtividadeComponent }
 ];
 
 @NgModule({
