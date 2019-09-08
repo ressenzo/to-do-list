@@ -2,10 +2,10 @@
     <form (ngSubmit)="salvarAtividade(atividade)" #atividadeForm="ngForm">
 
         <div class="form-group">
-            <input class="form-control" placeholder="Descrição" [(ngModel)]="atividade.descricao" name="descricao" />
+            <input class="form-control" required placeholder="Descrição" [(ngModel)]="atividade.descricao" name="descricao" />
         </div>
         <div>
-            <button class="btn btn-success" type="submit">Salvar</button>
+            <button class="btn btn-success" [disabled]="atividadeForm.invalid" type="submit">Salvar</button>
         </div>
     </form>
 </div>
