@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Atividade } from 'src/app/classes/atividade';
 import { AtividadeService } from 'src/app/services/atividade.service';
+import { BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
+import { ModalConfirmacaoComponent } from '../modal-confirmacao/modal-confirmacao.component';
 
 @Component({
   selector: 'app-formulario',
@@ -12,7 +14,10 @@ export class FormularioComponent implements OnInit {
   @Output() atividadeCadastrada = new EventEmitter<Atividade>();
   public atividade: Atividade;
 
-  constructor(public atividadeService: AtividadeService) { }
+  constructor(
+    public atividadeService: AtividadeService,
+    private modalService: BsModalService
+  ) { }
 
   ngOnInit() {
 
@@ -24,6 +29,15 @@ export class FormularioComponent implements OnInit {
     let atividadeCadastrada: Atividade;
 
     this.atividadeService.cadastrarAtividade(atividade).subscribe((ati: Atividade) => {
+
+      let dadosConfirmacao: ModalOptions = {
+        initialState: {
+          titulo: 'Confirmação de cadastro',
+          texto: 'Atividade adicionada com sucesso!'
+        }
+      };
+
+      let modalConfirmacao = this.modalService.show(ModalConfirmacaoComponent, dadosConfirmacao);
       
       this.atividade = new Atividade(0, null);
       atividadeCadastrada = {

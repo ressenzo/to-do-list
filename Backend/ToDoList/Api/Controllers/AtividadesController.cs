@@ -1,26 +1,20 @@
 ﻿using Entity.Entitties;
 using Repository.Interfaces;
-using Repository.Repositoryies;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace Api.Controllers
 {
-    public class AtividadeController : ApiController
+    public class AtividadesController : ApiController
     {
         readonly IAtividade _atividade;
 
-        public AtividadeController(IAtividade atividade)
+        public AtividadesController(IAtividade atividade)
         {
             _atividade = atividade;
         }
 
         [HttpGet]
-        public IHttpActionResult Get()
+        public IHttpActionResult ObterTodos()
         {
             var atividades = _atividade.Listar();
 
