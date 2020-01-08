@@ -2,10 +2,10 @@ import { Component, OnInit, TemplateRef, Input } from '@angular/core';
 import { Atividade } from 'src/app/classes/atividade';
 import { ListaService } from 'src/app/services/lista.service';
 import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
-import { AtividadeService } from 'src/app/services/atividade.service';
 import { ModalExcluirAtividadeComponent } from '../modal-excluir-atividade/modal-excluir-atividade.component';
 import { ModalConfirmacaoComponent } from '../modal-confirmacao/modal-confirmacao.component';
 import { ModalAlterarAtividadeComponent } from '../modal-alterar-atividade/modal-alterar-atividade.component';
+import { AtividadeService } from '../../services/atividade.service';
 
 @Component({
   selector: 'app-lista',
@@ -14,17 +14,10 @@ import { ModalAlterarAtividadeComponent } from '../modal-alterar-atividade/modal
 })
 export class ListaComponent implements OnInit {
 
-  public atividades: Atividade[] = [];
-  public modalRef: BsModalRef;
-  public descricaoAtividadeParaExcluir: string = null;
-  public idAtividadeParaExcluir: number = 0;
-
-  //#region Alterar
-  public descricaoAtividadeParaAlterar: string = null;
-  public idAtividadeParaAlterar: number = 0;
-  //#endregion
-
-  public mensagemErro: string = "";
+  private atividades: Atividade[] = [];
+  private bsModalRef: BsModalRef;  
+  private idAtividadeParaExcluir: number = 0;
+  private atividadeAlterada = new Atividade(0, null);
   
   @Input()
   set atividadeCadastrada(atividade: Atividade) {
@@ -34,8 +27,6 @@ export class ListaComponent implements OnInit {
       this.atividades.push(atividade);
     }
   }
-
-  bsModalRef: BsModalRef;
 
   constructor(
     private listaService: ListaService,
@@ -55,8 +46,10 @@ export class ListaComponent implements OnInit {
     });
   }
 
-  excluir(idAtivade: number, descricaoAtividade: string) {
+  excluir(idAtividade: number, descricaoAtividade: string) {
 
+    this.idAtividadeParaExcluir = idAtividade;
+    
     const dadosExclusao: ModalOptions = {
       initialState: {
         descricaoAtividade
@@ -67,24 +60,17 @@ export class ListaComponent implements OnInit {
     
     this.bsModalRef.content.atividadeExcluida.subscribe((excluir: boolean) => {
       
-      this.listaService.excluirAtividade(idAtivade).subscribe(exclusao => {
-        
-        this.bsModalRef.hide();
-        const dadosConfirmacao: ModalOptions = {
-          initialState: {
-            titulo: 'Confirmação de exclusão',
-            texto: 'Atividade excluída com sucesso!'
-          }
-        };
-        
-        let modalConfirmacao = this.modalService.show(ModalConfirmacaoComponent, dadosConfirmacao);
-        
-        modalConfirmacao.content.modalFechou.subscribe((fechou: boolean) => {
+      this.listaService.excluirAtividade(idAtividade).subscribe(exclusao => {
 
-          this.listarTodos();
-        });
+        this.modalConfirmacao('Confirmação de exclusão', 'Atividade excluída com sucesso!', this.excluirAtividadeLista());
       });
     });
+  }
+
+  excluirAtividadeLista() {
+
+    this.atividades = this.atividades.filter(ati => ati.id !== this.idAtividadeParaExcluir);
+    this.idAtividadeParaExcluir = 0;
   }
 
   alterar(idAtivade: number, descricaoAtividade: string) {
@@ -96,5 +82,42 @@ export class ListaComponent implements OnInit {
     };
 
     this.bsModalRef = this.modalService.show(ModalAlterarAtividadeComponent, dadosAlteracao);
+
+    this.bsModalRef.content.descricaoAlterada.subscribe((descricao: string) => {
+
+      this.atividadeAlterada = {
+        descricao,
+        id: idAtivade
+      };
+
+      this.atividadeService.alterarAtividade(this.atividadeAlterada).subscribe(alteracao => {
+        
+        this.modalConfirmacao("Confirmação de alteração", "Atividade alterada com sucesso!", this.alterarAtividadeLista());
+      });
+    });
+  }
+
+  modalConfirmacao(titulo: string, texto: string, metodo: void) {
+
+    this.bsModalRef.hide();
+    const dadosConfirmacao: ModalOptions = {
+      initialState: {
+        titulo,
+        texto
+      }
+    };
+    
+    let modalConfirmacao = this.modalService.show(ModalConfirmacaoComponent, dadosConfirmacao);
+
+    modalConfirmacao.content.modalFechou.subscribe((fechou: boolean) => {
+
+      metodo;
+    });
+  }
+
+  alterarAtividadeLista() {
+    
+    let indiceAtividade: number = this.atividades.findIndex(ati => ati.id === this.atividadeAlterada.id);
+    this.atividades[indiceAtividade] = this.atividadeAlterada;
   }
 }

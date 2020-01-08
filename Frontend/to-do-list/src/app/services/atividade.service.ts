@@ -20,6 +20,6 @@ export class AtividadeService {
 
   alterarAtividade(atividade: Atividade): Observable<Atividade> {
 
-    return this.http.put<Atividade>(this.URL, atividade);
+    return this.http.patch<Atividade>(this.URL, atividade);
   }
 }
