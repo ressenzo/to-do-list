@@ -8,10 +8,9 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class ModalConfirmacaoComponent implements OnInit {
 
-  modalFechou: EventEmitter<boolean> = new EventEmitter();
-
-  titulo: string;
-  texto: string;
+  private modalFechou: EventEmitter<boolean> = new EventEmitter();
+  private titulo: string;
+  private texto: string;
 
   constructor(
     private bsModalRef: BsModalRef

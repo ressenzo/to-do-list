@@ -6,7 +6,7 @@
 </div>
 
 <div class="modal-body">
-  <form>
+  <form #atividadeForm="ngForm">
     <div class="form-group">
       <input type="text" class="form-control" required placeholder="Descrição" [(ngModel)]="atividade.descricao" name="descricao" />
     </div>
@@ -14,5 +14,6 @@
 </div>
 
 <div class="modal-footer">
-  <button type="button" class="btn btn-sm btn-danger" (click)="excluir()">Alterar</button>
+  <button type="button" class="btn btn-sm btn-secondary" (click)="fechar()">Cancelar</button>
+  <button type="button" class="btn btn-sm btn-primary" [disabled]="atividadeForm.invalid" (click)="alterar()">Alterar</button>
 </div>

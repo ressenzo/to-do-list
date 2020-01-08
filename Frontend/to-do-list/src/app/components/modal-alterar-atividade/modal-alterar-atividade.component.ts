@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Atividade } from '../../classes/atividade';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-modal-alterar-atividade',
@@ -9,8 +10,9 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class ModalAlterarAtividadeComponent implements OnInit {
 
-  descricao: string;
-  public atividade: Atividade;
+  private descricaoAlterada: EventEmitter<string> = new EventEmitter();
+  private descricao: string;
+  private atividade: Atividade;
 
   constructor(
     private bsModalRef: BsModalRef
@@ -24,5 +26,10 @@ export class ModalAlterarAtividadeComponent implements OnInit {
   fechar() {
 
     this.bsModalRef.hide();
+  }
+
+  alterar() {
+
+    this.descricaoAlterada.emit(this.atividade.descricao);
   }
 }

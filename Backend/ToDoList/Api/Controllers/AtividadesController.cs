@@ -48,7 +48,7 @@ namespace Api.Controllers
             return Ok(confirmacao);
         }
 
-        [HttpPut]
+        [HttpPatch]
         public IHttpActionResult Alterar(AtividadeEntity atividade)
         {
             _atividade.Alterar(atividade);
