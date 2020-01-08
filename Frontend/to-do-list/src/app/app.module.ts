@@ -12,6 +12,7 @@ import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
 import { CadastroAtividadeComponent } from './components/cadastro-atividade/cadastro-atividade.component';
 import { ModalExcluirAtividadeComponent } from './components/modal-excluir-atividade/modal-excluir-atividade.component';
 import { ModalConfirmacaoComponent } from './components/modal-confirmacao/modal-confirmacao.component';
+import { ModalAlterarAtividadeComponent } from './components/modal-alterar-atividade/modal-alterar-atividade.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ModalConfirmacaoComponent } from './components/modal-confirmacao/modal-
     FormularioComponent,
     CadastroAtividadeComponent,
     ModalExcluirAtividadeComponent,
-    ModalConfirmacaoComponent
+    ModalConfirmacaoComponent,
+    ModalAlterarAtividadeComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { ModalConfirmacaoComponent } from './components/modal-confirmacao/modal-
   ],
   entryComponents: [
     ModalExcluirAtividadeComponent,
-    ModalConfirmacaoComponent
+    ModalConfirmacaoComponent,
+    ModalAlterarAtividadeComponent
   ],
   bootstrap: [AppComponent]
 })

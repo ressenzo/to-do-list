@@ -5,6 +5,7 @@ import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
 import { AtividadeService } from 'src/app/services/atividade.service';
 import { ModalExcluirAtividadeComponent } from '../modal-excluir-atividade/modal-excluir-atividade.component';
 import { ModalConfirmacaoComponent } from '../modal-confirmacao/modal-confirmacao.component';
+import { ModalAlterarAtividadeComponent } from '../modal-alterar-atividade/modal-alterar-atividade.component';
 
 @Component({
   selector: 'app-lista',
@@ -54,19 +55,7 @@ export class ListaComponent implements OnInit {
     });
   }
 
-  modalErro(modal: object, erro: any) {
-    
-    this.mensagemErro = erro;
-    this.modalRef = this.modalService.show(modal);
-    this.modalRef.content = "a";
-  }
-
-  adicionarAtividade(atividade: Atividade) {
-
-    this.atividades.push(atividade);
-  }
-
-  excluir(idAtivade: number, descricaoAtividade) {
+  excluir(idAtivade: number, descricaoAtividade: string) {
 
     const dadosExclusao: ModalOptions = {
       initialState: {
@@ -98,23 +87,14 @@ export class ListaComponent implements OnInit {
     });
   }
 
-  modalAlterar(modal: TemplateRef<any>, idAtividadeParaAlterar: number, descricaoAtividadeParaAlterar: string) {
+  alterar(idAtivade: number, descricaoAtividade: string) {
 
-    this.descricaoAtividadeParaAlterar = descricaoAtividadeParaAlterar;
-    this.idAtividadeParaAlterar = idAtividadeParaAlterar;
-    this.modalRef = this.modalService.show(modal);
-  }
-
-  alterarAtividade(descricaoParaAlterar: string) {
-
-    let atividadeAlteracao: Atividade = {
-      descricao: descricaoParaAlterar,
-      id: this.idAtividadeParaAlterar
+    const dadosAlteracao: ModalOptions = {
+      initialState: {
+        descricao: descricaoAtividade
+      }
     };
-    
-    this.atividadeService.alterarAtividade(atividadeAlteracao).subscribe(() => {
-      this.listarTodos();
-      this.modalRef.hide();
-    });
+
+    this.bsModalRef = this.modalService.show(ModalAlterarAtividadeComponent, dadosAlteracao);
   }
 }
