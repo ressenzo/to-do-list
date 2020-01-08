@@ -8,7 +8,7 @@ import { Atividade } from 'src/app/classes/atividade';
 })
 export class CadastroAtividadeComponent implements OnInit {
 
-  atividade: Atividade;
+  private atividade: Atividade;
   constructor() { }
 
   ngOnInit() {

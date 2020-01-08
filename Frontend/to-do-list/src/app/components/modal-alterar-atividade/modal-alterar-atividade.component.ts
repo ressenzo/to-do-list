@@ -10,10 +10,9 @@ import { EventEmitter } from '@angular/core';
 })
 export class ModalAlterarAtividadeComponent implements OnInit {
 
-  descricaoAlterada: EventEmitter<string> = new EventEmitter();
-
-  descricao: string;
-  public atividade: Atividade;
+  private descricaoAlterada: EventEmitter<string> = new EventEmitter();
+  private descricao: string;
+  private atividade: Atividade;
 
   constructor(
     private bsModalRef: BsModalRef
