@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AtividadeService {
 
-  public URL = "http://localhost:49472/Api/Atividade";
+  public URL = "http://localhost:49472/Api/Atividades";
 
   constructor(private http: HttpClient) { }
 

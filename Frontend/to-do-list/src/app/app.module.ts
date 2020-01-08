@@ -8,15 +8,19 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ModalModule } from 'ngx-bootstrap/modal';
+import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
 import { CadastroAtividadeComponent } from './components/cadastro-atividade/cadastro-atividade.component';
+import { ModalExcluirAtividadeComponent } from './components/modal-excluir-atividade/modal-excluir-atividade.component';
+import { ModalConfirmacaoComponent } from './components/modal-confirmacao/modal-confirmacao.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaComponent,
     FormularioComponent,
-    CadastroAtividadeComponent
+    CadastroAtividadeComponent,
+    ModalExcluirAtividadeComponent,
+    ModalConfirmacaoComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,13 @@ import { CadastroAtividadeComponent } from './components/cadastro-atividade/cada
     BrowserAnimationsModule,
     ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    BsModalRef
+  ],
+  entryComponents: [
+    ModalExcluirAtividadeComponent,
+    ModalConfirmacaoComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

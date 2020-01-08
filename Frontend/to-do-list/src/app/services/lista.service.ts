@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ListaService {
 
-  public URL = "http://localhost:49472/Api/Atividade";
+  public URL = "http://localhost:49472/Api/Atividades";
 
   constructor(private http: HttpClient) { }
 
@@ -22,8 +22,8 @@ export class ListaService {
     return this.http.delete(`${this.URL}/${id}`);
   }
 
-  // cadastrarAtividade(atividade: Atividade): Observable<Atividade> {
+  cadastrarAtividade(atividade: Atividade): Observable<Atividade> {
     
-  //   return this.http.post<Atividade>(`${this.ATIVIDADES_API}/cadastrar`, atividade);
-  // }
+    return this.http.post<Atividade>(`${this.URL}`, atividade);
+  }
 }
