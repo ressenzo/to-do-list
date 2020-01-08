@@ -1,6 +1,12 @@
 <div class="container-atividades">
 
-    <div  *ngIf="atividades.length == 0">
+    <div class="d-flex justify-content-center" *ngIf="carregando">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <div  *ngIf="atividades.length == 0 && !carregando">
         <h3>Nenhuma atividade cadastrada</h3>
     </div>
 
@@ -15,7 +21,5 @@
                 <button type="button" class="btn btn-primary list-group-item-action__botao primeiro btn-sm" (click)="alterar(atividade.id, atividade.descricao)">Alterar</button>
             </li>
         </ul>
-        
-        
     </div>
 </div>

@@ -17,6 +17,7 @@ export class ListaComponent implements OnInit {
   private bsModalRef: BsModalRef;  
   private idAtividadeParaExcluir: number = 0;
   private atividadeAlterada = new Atividade(0, null);
+  private carregando = true;
   
   @Input()
   set atividadeCadastrada(atividade: Atividade) {
@@ -40,7 +41,8 @@ export class ListaComponent implements OnInit {
   listarTodos() {
     
     this.atividadeService.obterAtividades().subscribe((data: Atividade[]) => { 
-        this.atividades = data
+        this.atividades = data;
+        this.carregando = false;
     });
   }
 
