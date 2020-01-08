@@ -12,6 +12,11 @@ export class AtividadeService {
 
   constructor(private http: HttpClient) { }
 
+  obterAtividades() {
+
+    return this.http.get<Atividade[]>(`${this.URL}`);
+  }
+
   cadastrarAtividade(atividade: Atividade): Observable<Atividade> {
     
     atividade.id = null;
@@ -21,5 +26,10 @@ export class AtividadeService {
   alterarAtividade(atividade: Atividade): Observable<Atividade> {
 
     return this.http.patch<Atividade>(this.URL, atividade);
+  }
+
+  excluirAtividade(id: number) {
+    
+    return this.http.delete(`${this.URL}/${id}`);
   }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit, TemplateRef, Input } from '@angular/core';
-import { Atividade } from 'src/app/classes/atividade';
-import { ListaService } from 'src/app/services/lista.service';
+import { Atividade } from '../../classes/atividade';
 import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
 import { ModalExcluirAtividadeComponent } from '../modal-excluir-atividade/modal-excluir-atividade.component';
 import { ModalConfirmacaoComponent } from '../modal-confirmacao/modal-confirmacao.component';
@@ -29,7 +28,6 @@ export class ListaComponent implements OnInit {
   }
 
   constructor(
-    private listaService: ListaService,
     private modalService: BsModalService,
     private atividadeService: AtividadeService
   ) { }
@@ -41,7 +39,7 @@ export class ListaComponent implements OnInit {
 
   listarTodos() {
     
-    this.listaService.obterAtividades().subscribe((data: Atividade[]) => { 
+    this.atividadeService.obterAtividades().subscribe((data: Atividade[]) => { 
         this.atividades = data
     });
   }
@@ -60,7 +58,7 @@ export class ListaComponent implements OnInit {
     
     this.bsModalRef.content.atividadeExcluida.subscribe((excluir: boolean) => {
       
-      this.listaService.excluirAtividade(idAtividade).subscribe(exclusao => {
+      this.atividadeService.excluirAtividade(idAtividade).subscribe(exclusao => {
 
         this.modalConfirmacao('Confirmação de exclusão', 'Atividade excluída com sucesso!', this.excluirAtividadeLista());
       });

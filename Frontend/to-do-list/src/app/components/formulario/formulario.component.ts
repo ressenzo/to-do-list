@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Atividade } from 'src/app/classes/atividade';
-import { AtividadeService } from 'src/app/services/atividade.service';
+import { Atividade } from '../../classes/atividade';
+import { AtividadeService } from '../../services/atividade.service';
 import { BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { ModalConfirmacaoComponent } from '../modal-confirmacao/modal-confirmacao.component';
 
