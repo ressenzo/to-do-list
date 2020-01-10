@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Atividade } from 'src/app/classes/atividade';
 
 @Component({
-  selector: 'app-cadastro-atividade',
-  templateUrl: './cadastro-atividade.component.html',
-  styleUrls: ['./cadastro-atividade.component.scss']
+  selector: 'app-container',
+  templateUrl: './container.component.html',
+  styleUrls: ['./container.component.scss']
 })
-export class CadastroAtividadeComponent implements OnInit {
+export class ContainerComponent implements OnInit {
 
   private atividade: Atividade;
   constructor() { }

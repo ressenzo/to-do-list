@@ -9,17 +9,17 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
-import { CadastroAtividadeComponent } from './components/cadastro-atividade/cadastro-atividade.component';
-import { ModalExcluirAtividadeComponent } from './components/modal-excluir-atividade/modal-excluir-atividade.component';
-import { ModalConfirmacaoComponent } from './components/modal-confirmacao/modal-confirmacao.component';
-import { ModalAlterarAtividadeComponent } from './components/modal-alterar-atividade/modal-alterar-atividade.component';
+import { ContainerComponent } from './components/container/container.component';
+import { ModalExcluirAtividadeComponent } from './components/modais/modal-excluir-atividade/modal-excluir-atividade.component';
+import { ModalConfirmacaoComponent } from './components/modais/modal-confirmacao/modal-confirmacao.component';
+import { ModalAlterarAtividadeComponent } from './components/modais/modal-alterar-atividade/modal-alterar-atividade.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaComponent,
     FormularioComponent,
-    CadastroAtividadeComponent,
+    ContainerComponent,
     ModalExcluirAtividadeComponent,
     ModalConfirmacaoComponent,
     ModalAlterarAtividadeComponent

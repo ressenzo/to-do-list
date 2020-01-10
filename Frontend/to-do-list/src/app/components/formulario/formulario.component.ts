@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Atividade } from '../../classes/atividade';
 import { AtividadeService } from '../../services/atividade.service';
 import { BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
-import { ModalConfirmacaoComponent } from '../modal-confirmacao/modal-confirmacao.component';
+import { ModalConfirmacaoComponent } from '../modais/modal-confirmacao/modal-confirmacao.component';
 
 @Component({
   selector: 'app-formulario',

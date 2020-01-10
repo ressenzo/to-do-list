@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Atividade } from '../../classes/atividade';
+import { Atividade } from '../../../classes/atividade';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { EventEmitter } from '@angular/core';
 

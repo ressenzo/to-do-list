@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CadastroAtividadeComponent } from './components/cadastro-atividade/cadastro-atividade.component';
+import { ContainerComponent } from './components/container/container.component';
 
 
 const routes: Routes = [
-  { path: 'cadastro', component: CadastroAtividadeComponent },
-  { path: '', component: CadastroAtividadeComponent }
+  { path: 'cadastro', component: ContainerComponent },
+  { path: '', component: ContainerComponent }
 ];
 
 @NgModule({

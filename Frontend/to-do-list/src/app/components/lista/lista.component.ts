@@ -1,9 +1,9 @@
 import { Component, OnInit, TemplateRef, Input } from '@angular/core';
 import { Atividade } from '../../classes/atividade';
 import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
-import { ModalExcluirAtividadeComponent } from '../modal-excluir-atividade/modal-excluir-atividade.component';
-import { ModalConfirmacaoComponent } from '../modal-confirmacao/modal-confirmacao.component';
-import { ModalAlterarAtividadeComponent } from '../modal-alterar-atividade/modal-alterar-atividade.component';
+import { ModalExcluirAtividadeComponent } from '../modais/modal-excluir-atividade/modal-excluir-atividade.component';
+import { ModalConfirmacaoComponent } from '../modais/modal-confirmacao/modal-confirmacao.component';
+import { ModalAlterarAtividadeComponent } from '../modais/modal-alterar-atividade/modal-alterar-atividade.component';
 import { AtividadeService } from '../../services/atividade.service';
 
 @Component({
