@@ -1,5 +1,4 @@
-﻿using Entity.Entitties;
-using ApplicationCore.Interfaces;
+﻿using ApplicationCore.Interfaces;
 using System.Web.Http;
 using ApplicationCore.Entities;
 
