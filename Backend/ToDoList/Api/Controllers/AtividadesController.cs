@@ -1,14 +1,15 @@
 ﻿using Entity.Entitties;
-using Repository.Interfaces;
+using ApplicationCore.Interfaces;
 using System.Web.Http;
+using ApplicationCore.Entities;
 
 namespace Api.Controllers
 {
     public class AtividadesController : ApiController
     {
-        readonly IAtividade _atividade;
+        readonly IAtividades _atividade;
 
-        public AtividadesController(IAtividade atividade)
+        public AtividadesController(IAtividades atividade)
         {
             _atividade = atividade;
         }
@@ -35,7 +36,7 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Cadastrar(AtividadeEntity atividade)
+        public IHttpActionResult Cadastrar(Atividades atividade)
         {
             var idAtividade = _atividade.Cadastrar(atividade);
 
@@ -49,7 +50,7 @@ namespace Api.Controllers
         }
 
         [HttpPatch]
-        public IHttpActionResult Alterar(AtividadeEntity atividade)
+        public IHttpActionResult Alterar(Atividades atividade)
         {
             _atividade.Alterar(atividade);
 

@@ -173,9 +173,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ApplicationCore\ApplicationCore.csproj">
+      <Project>{8e317903-2be4-44e2-930f-5d20d80583bf}</Project>
+      <Name>ApplicationCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{1ba2828f-2f1e-4f2b-a013-6735fc934ac3}</Project>
       <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{558ff720-e68a-419e-b205-4ebfb587dee0}</Project>
+      <Name>Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\Repository\Repository.csproj">
       <Project>{50d92ae1-5f00-4a84-bf5b-279bcc397ab5}</Project>
