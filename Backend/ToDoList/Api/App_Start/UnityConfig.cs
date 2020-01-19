@@ -1,8 +1,8 @@
-using Repository.Interfaces;
-using Repository.Repositoryies;
+using ApplicationCore.Interfaces;
 using System.Web.Http;
 using Unity;
 using Unity.WebApi;
+using Infrastructure.Repositories;
 
 namespace Api
 {
@@ -17,7 +17,7 @@ namespace Api
 
             // e.g. container.RegisterType<ITestService, TestService>();
 
-            container.RegisterType<IAtividade, AtividadeRepository>();
+            container.RegisterType<IAtividades, AtividadeRepository>();
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
     }
