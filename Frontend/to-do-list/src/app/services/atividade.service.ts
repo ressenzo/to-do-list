@@ -25,10 +25,7 @@ export class AtividadeService {
 
   alterarAtividade(atividade: Atividade): Observable<Atividade> {
 
-    const descricaoAlterada: object = {
-      descricaoAtividade: atividade.descricao
-    };
-    return this.http.patch<Atividade>(`${this.URL}/${atividade.id}`, descricaoAlterada );
+    return this.http.put<Atividade>(this.URL, atividade);
   }
 
   excluirAtividade(id: number) {

@@ -90,7 +90,7 @@ export class ListaComponent implements OnInit {
         id: idAtivade
       };
 
-      this.atividadeService.alterarAtividade(this.atividadeAlterada).subscribe(alteracao => {
+      this.atividadeService.alterarAtividade(this.atividadeAlterada).subscribe(() => {
         
         this.modalConfirmacao("Confirmação de alteração", "Atividade alterada com sucesso!", this.alterarAtividadeLista());
       });

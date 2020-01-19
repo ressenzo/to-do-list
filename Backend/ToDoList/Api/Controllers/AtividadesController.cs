@@ -14,7 +14,7 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public IHttpActionResult ObterTodos()
+        public IHttpActionResult Get()
         {
             var atividades = _atividade.Listar();
 
@@ -22,7 +22,7 @@ namespace Api.Controllers
         }
 
         [HttpDelete]
-        public IHttpActionResult Deletar(int id)
+        public IHttpActionResult Delete(int id)
         {
             _atividade.Deletar(id);
 
@@ -35,7 +35,7 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Cadastrar(Atividades atividade)
+        public IHttpActionResult Post([FromBody]Atividades atividade)
         {
             var idAtividade = _atividade.Cadastrar(atividade);
 
@@ -48,8 +48,8 @@ namespace Api.Controllers
             return Ok(confirmacao);
         }
 
-        [HttpPatch]
-        public IHttpActionResult Alterar(Atividades atividade)
+        [HttpPut]
+        public IHttpActionResult Put([FromBody]Atividades atividade)
         {
             _atividade.Alterar(atividade);
 
