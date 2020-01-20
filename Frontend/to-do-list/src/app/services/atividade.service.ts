@@ -14,7 +14,7 @@ export class AtividadeService {
 
   obterAtividades() {
 
-    return this.http.get<Atividade[]>(`${this.URL}`);
+    return this.http.get<Atividade[]>(this.URL);
   }
 
   cadastrarAtividade(atividade: Atividade): Observable<Atividade> {
@@ -25,7 +25,7 @@ export class AtividadeService {
 
   alterarAtividade(atividade: Atividade): Observable<Atividade> {
 
-    return this.http.patch<Atividade>(this.URL, atividade);
+    return this.http.put<Atividade>(this.URL, atividade);
   }
 
   excluirAtividade(id: number) {

@@ -8,7 +8,7 @@
 <div class="modal-body">
   <form #atividadeForm="ngForm" id="form-alterar">
     <div class="form-group">
-      <input type="text" class="form-control" required placeholder="Descrição" [(ngModel)]="atividade.descricao" name="descricao" />
+      <input autocomplete="off" type="text" class="form-control" required placeholder="Descrição" [(ngModel)]="atividade.descricao" name="descricao" />
     </div>
   </form>
 </div>
