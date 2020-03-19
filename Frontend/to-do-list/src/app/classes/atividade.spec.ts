@@ -2,6 +2,6 @@ import { Atividade } from './atividade';
 
 describe('Atividade', () => {
   it('should create an instance', () => {
-    expect(new Atividade()).toBeTruthy();
+    expect(new Atividade(0, 'teste')).toBeTruthy();
   });
 });

@@ -12,7 +12,7 @@ import { ModalConfirmacaoComponent } from '../modais/modal-confirmacao/modal-con
 export class FormularioComponent implements OnInit {
 
   @Output() atividadeCadastrada = new EventEmitter<Atividade>();
-  private atividade: Atividade;
+  atividade: Atividade;
 
   constructor(
     public atividadeService: AtividadeService,

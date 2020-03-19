@@ -13,11 +13,11 @@ import { AtividadeService } from '../../services/atividade.service';
 })
 export class ListaComponent implements OnInit {
 
-  private atividades: Atividade[] = [];
+  atividades: Atividade[] = [];
   private bsModalRef: BsModalRef;  
   private idAtividadeParaExcluir: number = 0;
   private atividadeAlterada = new Atividade(0, null);
-  private carregando = true;
+  carregando = true;
   
   @Input()
   set atividadeCadastrada(atividade: Atividade) {

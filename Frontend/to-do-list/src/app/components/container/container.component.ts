@@ -8,7 +8,7 @@ import { Atividade } from 'src/app/classes/atividade';
 })
 export class ContainerComponent implements OnInit {
 
-  private atividade: Atividade;
+  atividade: Atividade;
   constructor() { }
 
   ngOnInit() {

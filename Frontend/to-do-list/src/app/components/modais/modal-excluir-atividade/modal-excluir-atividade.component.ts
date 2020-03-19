@@ -10,7 +10,7 @@ import { EventEmitter } from '@angular/core';
 export class ModalExcluirAtividadeComponent implements OnInit {
 
   private atividadeExcluida: EventEmitter<boolean> = new EventEmitter();
-  private descricaoAtividade: string;
+  descricaoAtividade: string;
 
   constructor(
     private bsModalRef: BsModalRef

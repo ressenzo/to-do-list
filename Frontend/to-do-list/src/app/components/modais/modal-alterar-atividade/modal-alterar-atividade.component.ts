@@ -12,7 +12,7 @@ export class ModalAlterarAtividadeComponent implements OnInit {
 
   private descricaoAlterada: EventEmitter<string> = new EventEmitter();
   private descricao: string;
-  private atividade: Atividade;
+  atividade: Atividade;
 
   constructor(
     private bsModalRef: BsModalRef
